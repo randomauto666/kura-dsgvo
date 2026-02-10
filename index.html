@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kura Bot - Privacy Policy & Terms of Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1d3a 100%);
+            color: #e0e6ed;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: drift 20s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-50px, -50px); }
+        }
+
+        /* Floating Particles */
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: rgba(79, 172, 254, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float 15s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+        header {
+            background: rgba(26, 29, 58, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(79, 172, 254, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: glow 2s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.5);
+            object-fit: cover;
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(79, 172, 254, 0.5);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(79, 172, 254, 0.8);
+                transform: scale(1.05);
+            }
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(79, 172, 254, 0.3);
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(79, 172, 254, 0.1);
+            padding: 0.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1.2rem;
+            border: none;
+            background: transparent;
+            color: #e0e6ed;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .lang-btn:hover {
+            background: rgba(79, 172, 254, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: #0a0e27;
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.5);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow-text 3s ease-in-out infinite;
+        }
+
+        @keyframes glow-text {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(79, 172, 254, 0.3)); }
+            50% { filter: drop-shadow(0 0 20px rgba(79, 172, 254, 0.6)); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #a0a8b5;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: rgba(79, 172, 254, 0.1);
+            border: 2px solid rgba(79, 172, 254, 0.3);
+            border-radius: 15px;
+            color: #e0e6ed;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(79, 172, 254, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .tab-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .tab-btn:hover {
+            border-color: #4facfe;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            border-color: transparent;
+            color: #0a0e27;
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.5);
+        }
+
+        .tab-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: rgba(26, 29, 58, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(79, 172, 254, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .card:hover {
+            border-color: rgba(79, 172, 254, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.2);
+        }
+
+        .card h2 {
+            color: #4facfe;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card h3 {
+            color: #00f2fe;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p, .card ul {
+            line-height: 1.8;
+            color: #c0c7d1;
+            margin-bottom: 1rem;
+        }
+
+        .card ul {
+            padding-left: 2rem;
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .card li::marker {
+            color: #4facfe;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(79, 172, 254, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(79, 172, 254, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .contact-item:hover {
+            background: rgba(79, 172, 254, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #4facfe;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .contact-item h3 {
+            color: #4facfe;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: #00f2fe;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #4facfe;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(26, 29, 58, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            text-align: center;
+            border-top: 2px solid rgba(79, 172, 254, 0.3);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: #a0a8b5;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #4facfe;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00f2fe;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+        }
+
+        /* Icons */
+        .icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+
+            .tab-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="kura.png" alt="Kura Logo" class="logo">
+                <div class="logo-text">Kura Bot</div>
+            </div>
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="de">Deutsch</button>
+                <button class="lang-btn" data-lang="en">English</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1 data-de="Datenschutz & Nutzungsbedingungen" data-en="Privacy Policy & Terms of Service">Datenschutz & Nutzungsbedingungen</h1>
+            <p data-de="Transparenz und Vertrauen sind uns wichtig" data-en="Transparency and trust matter to us">Transparenz und Vertrauen sind uns wichtig</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-tab="privacy">
+                <span data-de="📋 Datenschutz" data-en="📋 Privacy Policy">📋 Datenschutz</span>
+            </button>
+            <button class="tab-btn" data-tab="terms">
+                <span data-de="📜 Nutzungsbedingungen" data-en="📜 Terms of Service">📜 Nutzungsbedingungen</span>
+            </button>
+            <button class="tab-btn" data-tab="impressum">
+                <span data-de="📁 Impressum" data-en="📁 Impressum">📁 Impressum</span>
+            </button>
+            <button class="tab-btn" data-tab="contact">
+                <span data-de="📞 Kontakt" data-en="📞 Contact">📞 Kontakt</span>
+            </button>
+        </div>
+
+        <!-- Privacy Policy Section -->
+        <div class="content-section active" id="privacy">
+            <div class="card fade-in-up">
+                <h2>
+                    <span class="icon">🔒</span>
+                    <span data-de="Datenschutzerklärung" data-en="Privacy Policy">Datenschutzerklärung</span>
+                </h2>
+                
+                <h3 data-de="1. Datenerhebung und -nutzung" data-en="1. Data Collection and Usage">1. Datenerhebung und -nutzung</h3>
+                <p data-de="Kura Bot erhebt und verarbeitet folgende Daten:" data-en="Kura Bot collects and processes the following data:">Kura Bot erhebt und verarbeitet folgende Daten:</p>
+                <ul>
+                    <li data-de="Discord User ID (zur Identifikation)" data-en="Discord User ID (for identification)">Discord User ID (zur Identifikation)</li>
+                    <li data-de="Server ID (zur Funktionalität)" data-en="Server ID (for functionality)">Server ID (zur Funktionalität)</li>
+                    <li data-de="Nachrichten-Inhalte nur zur Befehlsverarbeitung" data-en="Message contents only for command processing">Nachrichten-Inhalte nur zur Befehlsverarbeitung</li>
+                    <li data-de="Keine Speicherung persönlicher Nachrichten" data-en="No storage of personal messages">Keine Speicherung persönlicher Nachrichten</li>
+                </ul>
+
+                <h3 data-de="2. Datenspeicherung" data-en="2. Data Storage">2. Datenspeicherung</h3>
+                <p data-de="Alle Daten werden verschlüsselt und sicher gespeichert. Wir geben keine Daten an Dritte weiter." data-en="All data is encrypted and stored securely. We do not share data with third parties.">Alle Daten werden verschlüsselt und sicher gespeichert. Wir geben keine Daten an Dritte weiter.</p>
+
+                <h3 data-de="3. Ihre Rechte" data-en="3. Your Rights">3. Ihre Rechte</h3>
+                <ul>
+                    <li data-de="Recht auf Auskunft über gespeicherte Daten" data-en="Right to information about stored data">Recht auf Auskunft über gespeicherte Daten</li>
+                    <li data-de="Recht auf Löschung Ihrer Daten" data-en="Right to deletion of your data">Recht auf Löschung Ihrer Daten</li>
+                    <li data-de="Recht auf Datenübertragbarkeit" data-en="Right to data portability">Recht auf Datenübertragbarkeit</li>
+                </ul>
+
+                <h3 data-de="4. Cookies und Tracking" data-en="4. Cookies and Tracking">4. Cookies und Tracking</h3>
+                <p data-de="Kura Bot verwendet keine Cookies oder Tracking-Mechanismen außerhalb der Discord-Plattform." data-en="Kura Bot does not use cookies or tracking mechanisms outside the Discord platform.">Kura Bot verwendet keine Cookies oder Tracking-Mechanismen außerhalb der Discord-Plattform.</p>
+
+                <h3 data-de="5. Datenschutz bei Minderjährigen" data-en="5. Privacy for Minors">5. Datenschutz bei Minderjährigen</h3>
+                <p data-de="Kura Bot ist für alle Altersgruppen geeignet. Wir erheben wissentlich keine sensiblen Daten von Minderjährigen." data-en="Kura Bot is suitable for all age groups. We do not knowingly collect sensitive data from minors.">Kura Bot ist für alle Altersgruppen geeignet. Wir erheben wissentlich keine sensiblen Daten von Minderjährigen.</p>
+            </div>
+        </div>
+
+        <!-- Terms of Service Section -->
+        <div class="content-section" id="terms">
+            <div class="card fade-in-up">
+                <h2>
+                    <span class="icon">📜</span>
+                    <span data-de="Nutzungsbedingungen" data-en="Terms of Service">Nutzungsbedingungen</span>
+                </h2>
+
+                <h3 data-de="1. Akzeptanz der Bedingungen" data-en="1. Acceptance of Terms">1. Akzeptanz der Bedingungen</h3>
+                <p data-de="Durch die Nutzung von Kura Bot akzeptieren Sie diese Nutzungsbedingungen vollständig." data-en="By using Kura Bot, you fully accept these Terms of Service.">Durch die Nutzung von Kura Bot akzeptieren Sie diese Nutzungsbedingungen vollständig.</p>
+
+                <h3 data-de="2. Erlaubte Nutzung" data-en="2. Permitted Use">2. Erlaubte Nutzung</h3>
+                <ul>
+                    <li data-de="Der Bot darf nur für legale Zwecke verwendet werden" data-en="The bot may only be used for legal purposes">Der Bot darf nur für legale Zwecke verwendet werden</li>
+                    <li data-de="Keine Versuche, den Bot zu manipulieren oder zu missbrauchen" data-en="No attempts to manipulate or abuse the bot">Keine Versuche, den Bot zu manipulieren oder zu missbrauchen</li>
+                    <li data-de="Respektvoller Umgang mit anderen Nutzern" data-en="Respectful interaction with other users">Respektvoller Umgang mit anderen Nutzern</li>
+                    <li data-de="Keine Spam- oder Missbrauchsversuche" data-en="No spam or abuse attempts">Keine Spam- oder Missbrauchsversuche</li>
+                </ul>
+
+                <h3 data-de="3. Verbotene Aktivitäten" data-en="3. Prohibited Activities">3. Verbotene Aktivitäten</h3>
+                <ul>
+                    <li data-de="Verbreitung illegaler Inhalte" data-en="Distribution of illegal content">Verbreitung illegaler Inhalte</li>
+                    <li data-de="Belästigung anderer Nutzer" data-en="Harassment of other users">Belästigung anderer Nutzer</li>
+                    <li data-de="Umgehung von Bot-Beschränkungen" data-en="Circumventing bot restrictions">Umgehung von Bot-Beschränkungen</li>
+                    <li data-de="Reverse Engineering oder Dekompilierung" data-en="Reverse engineering or decompilation">Reverse Engineering oder Dekompilierung</li>
+                </ul>
+
+                <h3 data-de="4. Haftungsausschluss" data-en="4. Disclaimer">4. Haftungsausschluss</h3>
+                <p data-de="Kura Bot wird 'wie besehen' bereitgestellt. Wir übernehmen keine Garantie für ununterbrochene Verfügbarkeit oder fehlerfreien Betrieb." data-en="Kura Bot is provided 'as is'. We do not guarantee uninterrupted availability or error-free operation.">Kura Bot wird "wie besehen" bereitgestellt. Wir übernehmen keine Garantie für ununterbrochene Verfügbarkeit oder fehlerfreien Betrieb.</p>
+
+                <h3 data-de="5. Änderungen der Bedingungen" data-en="5. Changes to Terms">5. Änderungen der Bedingungen</h3>
+                <p data-de="Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Nutzer werden über wesentliche Änderungen informiert." data-en="We reserve the right to change these terms at any time. Users will be informed of significant changes.">Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Nutzer werden über wesentliche Änderungen informiert.</p>
+
+                <h3 data-de="6. Beendigung" data-en="6. Termination">6. Beendigung</h3>
+                <p data-de="Wir behalten uns das Recht vor, den Zugang zum Bot bei Verstößen gegen diese Bedingungen zu sperren." data-en="We reserve the right to block access to the bot in case of violations of these terms.">Wir behalten uns das Recht vor, den Zugang zum Bot bei Verstößen gegen diese Bedingungen zu sperren.</p>
+            </div>
+        </div>
+
+        <!-- Impressum Section -->
+        <div class="content-section" id="impressum">
+            <div class="card fade-in-up">
+                <h2>
+                    <span class="icon">📁</span>
+                    <span>Impressum</span>
+                </h2>
+
+                <h3 data-de="Verantwortlich gemäß § 5 TMG:" data-en="Responsible according to § 5 TMG:">Verantwortlich gemäß § 5 TMG:</h3>
+                <p>
+                    <strong>Discord:</strong> randomauto<br>
+                    <strong data-de="Kontakt:" data-en="Contact:">Kontakt:</strong> carlbot0815@gmail.com
+                </p>
+
+                <h3>Disclaimer:</h3>
+                <p data-de="Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich." data-en="Despite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content.">
+                    Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+                </p>
+
+                <h3 data-de="Urheberrecht" data-en="Copyright">Urheberrecht</h3>
+                <p data-de="Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers." data-en="The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution and any form of commercialization beyond the scope of copyright law require the written consent of the respective author or creator.">
+                    Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="content-section" id="contact">
+            <div class="card fade-in-up">
+                <h2>
+                    <span class="icon">📞</span>
+                    <span data-de="Kontakt" data-en="Contact">Kontakt</span>
+                </h2>
+                <p data-de="Bei Fragen, Anregungen oder Problemen stehen wir Ihnen gerne zur Verfügung:" data-en="For questions, suggestions or problems, we are at your disposal:">Bei Fragen, Anregungen oder Problemen stehen wir Ihnen gerne zur Verfügung:</p>
+
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <i>💬</i>
+                        <h3>Discord</h3>
+                        <p><a href="https://discord.com/users/randomauto" target="_blank">@randomauto</a></p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i>📧</i>
+                        <h3>Email</h3>
+                        <p><a href="mailto:carlbot0815@gmail.com">carlbot0815@gmail.com</a></p>
+                    </div>
+
+                    <div class="contact-item">
+                        <i>🐙</i>
+                        <h3>GitHub</h3>
+                        <p><a href="https://github.com/randomauto666" target="_blank">@randomauto666</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p data-de="© 2026 Kura Bot. Alle Rechte vorbehalten." data-en="© 2026 Kura Bot. All rights reserved.">© 2026 Kura Bot. Alle Rechte vorbehalten.</p>
+        <div class="footer-links">
+            <a href="#privacy" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
+            <a href="#terms" data-de="Nutzungsbedingungen" data-en="Terms">Nutzungsbedingungen</a>
+            <a href="#impressum" data-de="Impressum" data-en="Impressum">Impressum</a>
+            <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switcher
+        const langButtons = document.querySelectorAll('.lang-btn');
+        let currentLang = 'de';
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                langButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentLang = btn.dataset.lang;
+                updateLanguage();
+            });
+        });
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-de][data-en]').forEach(element => {
+                element.textContent = element.dataset[currentLang];
+            });
+        }
+
+        // Tab Switching
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const tabId = btn.dataset.tab;
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === tabId) {
+                        section.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Floating Particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll for Footer Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = this.getAttribute('href').substring(1);
+                const tabBtn = document.querySelector(`[data-tab="${target}"]`);
+                if (tabBtn) {
+                    tabBtn.click();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add glow effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+                    card.style.setProperty('--mouse-x', x + 'px');
+                    card.style.setProperty('--mouse-y', y + 'px');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
